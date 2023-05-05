@@ -16,6 +16,9 @@
 				width: 80px;
 			 	background-color: blue;
 			}
+			.inputFocado{
+				background-color: red;
+			}
 		</style>
 
 		<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -55,7 +58,7 @@
 					$('#div2').css('background-color', 'yellow')
 				})
 
-				$('#div2').mousemove(() => {
+				$('#div2').mousemove(e => {
 					$('#resultadoDiv').html(' X: ' + e.offsetX + ' / Y: ' + e.offsetY)
 				})
 
@@ -111,6 +114,39 @@
 				// 	}
 				// })
 
+				$('#nome').focus((e) => {
+					console.log('Esse elemento está em foco (nome)')
+					$(e.target).addClass('inputFocado')
+				})
+
+				$('#nome').blur((e) => {
+					console.log('Esse elemento perdeu foco (nome)')
+					$(e.target).removeClass('inputFocado')
+				})
+
+				$('#email').focus((e) => {
+					console.log('Esse elemento está em foco (email)')
+					$(e.target).addClass('inputFocado')
+				})
+
+				$('#email').blur((e) => {
+					console.log('Esse elemento perdeu foco (email)')
+					$(e.target).removeClass('inputFocado')
+				})
+
+				$('#opcao').change((e) => {
+					console.log($(e.target).val())
+				})
+
+				$('#form').submit((e) => {
+				 	e.preventDefault()
+				 	console.log('Formulário enviado!')
+				})
+
+				$('a').click(e => {
+					e.preventDefault()
+				})
+
 			})
 		</script>
 	</head>
@@ -154,22 +190,26 @@
 			<hr />
 
 			<h3>Formulário</h3>
-			<form>
+			<form id="form">
 				<span>Nome:</span>
-				<input type="text" />
+				<input type="text" id="nome" />
 
 				<span>E-mail:</span>
-				<input type="text" />
+				<input type="text" / id="email">
 
 				<span>Motivo do contato:</span>
-				<select>
+				<select id="opcao">
 					<option value="">-- Selecione --</option>
 					<option value="duvida">Dúvida</option>
 					<option value="sugestao">Sugestão</option>
 				</select>
 				
-				<button type="button">Enviar</button>
+				<button type="submit">Enviar</button>
 			</form>
+
+			<br>
+
+			<a href="www.google.com.br">Google</a>
 		</div>
 	</body>
 
