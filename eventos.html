@@ -114,23 +114,14 @@
 				// 	}
 				// })
 
-				$('#nome').focus((e) => {
-					console.log('Esse elemento está em foco (nome)')
+				//Pode se identificar mais de um elemento para que não haja repetição da mesma funcionalidade				
+				$('#nome, #email').focus((e) => {
+					// console.log('Esse elemento está em foco')
 					$(e.target).addClass('inputFocado')
 				})
 
-				$('#nome').blur((e) => {
-					console.log('Esse elemento perdeu foco (nome)')
-					$(e.target).removeClass('inputFocado')
-				})
-
-				$('#email').focus((e) => {
-					console.log('Esse elemento está em foco (email)')
-					$(e.target).addClass('inputFocado')
-				})
-
-				$('#email').blur((e) => {
-					console.log('Esse elemento perdeu foco (email)')
+				$('#nome, #email').blur((e) => {
+					// console.log('Esse elemento perdeu foco')
 					$(e.target).removeClass('inputFocado')
 				})
 
