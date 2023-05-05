@@ -27,10 +27,28 @@
 				// 	$(this).css('background-color', 'blue')
 				// })
 
-				//arrow function
+				//usando event retornado pela função parâmetro
 				$('#div1').scroll(e => {
 					$(e.target).css('background-color', 'blue')
 				})
+
+				$('#btn1').mousedown(() => {
+					$('#div2').css('background-color', 'green')
+				})
+
+				//click e mouseup podem gerar o mesmo resultado
+				$('#btn1').click(() => {
+					$('#div2').css('background-color', 'blue')
+				})
+
+				$('#btn2').dblclick(() => {
+					$('#div2').css('background-color', 'yellow')
+				})
+
+				$('#div2').mousemove((e) => {
+					$('#resultadoDiv').html(' X: ' + e.offsetX + ' / Y: ' + e.offsetY)
+				})
+
 			})
 		</script>
 	</head>
@@ -54,16 +72,16 @@
 			<hr />
 
 			<h3>Mouse</h3>
-			<button type="button">Clique aqui</button>
-			<button type="button">Clique aqui 2x</button>
-			<div style="background-color: red; width: 80px; height: 50px; margin-top: 10px; margin-bottom: 10px"></div>
+			<button type="button" id="btn1">Clique aqui</button>
+			<button type="button" id="btn2">Clique aqui 2x</button>
+			<div id="div2" style="background-color: red; width: 80px; height: 50px; margin-top: 10px; margin-bottom: 10px"></div>
 			<span>Resultado do evento sobre a div</span>
 			<hr />
 
 			<h3>Teclado</h3>
 			<span>Nome:</span>
 			<input type="text" />
-			<span>Resultado do evento sobre o input</span>
+			<span>Resultado do evento sobre o input</span><span id="resultadoDiv"></span>
 			<hr />
 
 			<h3>Formulário</h3>
